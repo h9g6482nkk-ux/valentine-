@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Simran ❤️</title>
+
+<style>
+body{
+  margin:0;
+  padding:0;
+  text-align:center;
+  font-family: Arial, Helvetica, sans-serif;
+  color:white;
+  overflow:hidden;
+}
+
+/* Background Photo */
+.bg{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url('photo.jpg') no-repeat center center/cover;
+  filter: blur(6px) brightness(0.6);
+  z-index:-1;
+}
+
+.container{
+  margin-top:80px;
+}
+
+h1{font-size:42px;}
+h2{font-size:28px;}
+
+button{
+  padding:15px 35px;
+  font-size:22px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  margin:15px;
+  transition:0.3s;
+}
+
+#yes{background-color:#ff4d6d;}
+#no{background-color:gray;}
+
+#message{
+  display:none;
+  font-size:24px;
+  margin:30px;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* Floating Hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:24px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0); opacity:1;}
+  100%{transform:translateY(-110vh); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- Music -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>Hey Simran ❤️</h1>
+  <h2>Will You Be My Valentine?</h2>
+
+  <button id="yes" onclick="showMessage()">YES 💖</button>
+  <button id="no" onmouseover="moveNo()">NO 🙈</button>
+
+  <div id="message">
+    <p>Simran,</p>
+    <p>You didn’t just enter my life… you made it beautiful.</p>
+    <p>Your smile is my peace, your voice is my comfort, and your presence is my happiness.</p>
+    <p>I feel lucky every single day that you are with me.</p>
+    <p>Thank you for being my best friend, my love, and my everything.</p>
+    <p>Happy Valentine’s Day, my beautiful girl ❤️</p>
+    <p><b>Forever yours,<br>Prince</b></p>
+  </div>
+</div>
+
+<script>
+function showMessage(){
+  document.getElementById("message").style.display="block";
+}
+
+// Moving NO button
+function moveNo(){
+  var x = Math.random()*window.innerWidth*0.7;
+  var y = Math.random()*window.innerHeight*0.7;
+  var noBtn = document.getElementById("no");
+  noBtn.style.position="absolute";
+  noBtn.style.left=x+"px";
+  noBtn.style.top=y+"px";
+}
+
+// Floating hearts generator
+setInterval(function(){
+  var heart = document.createElement("div");
+  heart.className = "heart";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.innerHTML = "💗";
+  document.body.appendChild(heart);
+
+  setTimeout(function(){
+    heart.remove();
+  },6000);
+},500);
+</script>
+
+</body>
+</html>
